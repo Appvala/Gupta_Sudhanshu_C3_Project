@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api;
 import org.mockito.Mockito;
 
 import java.time.LocalTime;
@@ -68,4 +69,12 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    //<<<<<<<<<<<<<<<<<<<<<<<<<<Total Price calc>>>>>>>>>>>>>>
+    @Test
+    public void check_item_total_for_selected_items_from_menu() {
+        List<String> itemsSelected = Arrays.asList("Sweet corn soup","Vegetable lasagne");
+        //119+269 = 388
+        assertEquals(388,restaurant.totalValue(itemsSelected));
+    }
+    //<<<<<<<<<<<<<<<<<<<<<<<<<<Total Price calc>>>>>>>>>>>>>>
 }
